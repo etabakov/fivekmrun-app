@@ -1,5 +1,6 @@
 import 'package:fivekmrun_flutter/charts/best_times_by_route_chart.dart';
 import 'package:fivekmrun_flutter/charts/runs_by_route_chart.dart';
+import 'package:fivekmrun_flutter/charts/selfie_chart.dart';
 import 'package:fivekmrun_flutter/common/avatar.dart';
 import 'package:fivekmrun_flutter/common/run_card.dart';
 import 'package:fivekmrun_flutter/custom_icons.dart';
@@ -111,6 +112,7 @@ class ProfileDashboard extends StatelessWidget {
               )
             ],
           ),
+        //this.buildSelfieCard(user.id),
         if (hasRuns) this.buildRunsCards(runsRes.bestRun, runsRes.lastRun),
         if (hasRuns) this.buildRunsChartCard(runs),
         if (hasRuns) this.buildRunsByRouteCard(runs),
@@ -161,6 +163,14 @@ class ProfileDashboard extends StatelessWidget {
       child: Container(
         height: 200,
         child: BestTimesByRouteChart.withRuns(runs),
+      ),
+    );
+  }
+
+  Widget buildSelfieCard(int userId) {
+    return Card(
+      child: Container(
+        child: SelfieChart()
       ),
     );
   }
